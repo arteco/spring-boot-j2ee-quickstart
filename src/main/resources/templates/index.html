@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Good Thymes Virtual Grocery</title>
+    <title>Spring Boot QuickStart</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" media="all"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -22,6 +22,28 @@
             <div class="col-md-6">
                 Message from controller:
                 <p th:text="${message}">Message from Controller</p>
+            </div>
+        </div>
+        <hr/>
+        <H3>Simple Rest Call</H3>
+        <a th:href="@{api/hello}">do get rest call</a>
+        <hr/>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>People</h3>
+                <ul>
+                    <li th:each="person : ${people}">
+                        <span th:utext="${person.name+' '+person.surname}"></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Addresses</h3>
+                <ul>
+                    <li th:each="addr : ${addresses}">
+                        <span th:utext="${addr.street}"></span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

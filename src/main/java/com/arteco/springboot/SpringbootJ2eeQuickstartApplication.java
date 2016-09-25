@@ -9,4 +9,11 @@ public class SpringbootJ2eeQuickstartApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootJ2eeQuickstartApplication.class, args);
 	}
+
+//	@Configuration
+//	public class JerseyConfig extends ResourceConfig {
+//		public JerseyConfig() {
+//			register(IndexRestController.class);
+//		}
+//	}
 }
