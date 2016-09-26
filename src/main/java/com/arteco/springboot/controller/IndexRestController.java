@@ -14,9 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/api", produces = "application/json")
 public class IndexRestController {
 
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
-	public JsonMessage test() {
+	@RequestMapping(value = "/public/hello", method = RequestMethod.GET)
+	public JsonMessage publicMethod() {
 		return new JsonMessage("Hello world!");
+
+	}
+
+	@RequestMapping(value = "/admin/hello", method = RequestMethod.GET)
+	public JsonMessage protectedMethod() {
+		return new JsonMessage("Hello world from secured resource!");
 
 	}
 

@@ -25,9 +25,6 @@
             </div>
         </div>
         <hr/>
-        <H3>Simple Rest Call</H3>
-        <a th:href="@{api/hello}">do get rest call</a>
-        <hr/>
         <div class="row">
             <div class="col-md-6">
                 <h3>People</h3>
@@ -46,8 +43,18 @@
                 </ul>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+            <hr/>
+            <h3>Protected resources</h3>
+            <ul>
+                <li><a th:href="@{/api/public/hello}">Public api call</a></li>
+                <li><a th:href="@{/api/admin/hello}">Protected (admin role) api call</a></li>
+            </ul>
+            <hr/>
+            </div>
+        </div>
     </div>
-    <hr/>
     <div class="container">
         <footer class="text-center">
             <a href="https://www.arteco-consulting.com">Arteco Consulting Sl</a>, 2016

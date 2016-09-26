@@ -15,7 +15,7 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("devel")
-public class SpringbootJ2eeQuickstartApplicationTests{
+public class SpringApplicationTests {
 
 	@Autowired
 	private PersonDao personDao;
