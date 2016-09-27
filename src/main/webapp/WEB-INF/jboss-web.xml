@@ -1,0 +1,3 @@
+<jboss-web>
+    <security-domain>seycon</security-domain>
+</jboss-web>

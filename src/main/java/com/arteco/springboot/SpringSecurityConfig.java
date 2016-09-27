@@ -1,5 +1,7 @@
 package com.arteco.springboot;
 
+import com.arteco.springboot.jaas.RoleUserAuthorityGranter;
+import com.arteco.springboot.jaas.UsernameEqualsPasswordLoginModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -14,6 +16,7 @@ import javax.security.auth.login.AppConfigurationEntry;
 import java.security.Principal;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -50,31 +53,20 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	private AuthenticationProvider jaasAuthenticationProvider() throws Exception {
 		DefaultJaasAuthenticationProvider result = new DefaultJaasAuthenticationProvider();
-		AppConfigurationEntry[] confs = new AppConfigurationEntry[]{
-				new AppConfigurationEntry(
-						"testModule",
-						javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.REQUIRED,
-						new HashMap<String, Object>()
-				)
-
-		};
-		InMemoryConfiguration config = new InMemoryConfiguration(confs);
-		result.setCallbackHandlers(new JaasAuthenticationCallbackHandler[]{
-				new JaasNameCallbackHandler(),
-				new JaasPasswordCallbackHandler()
-		});
+		AppConfigurationEntry[] confs = new AppConfigurationEntry[]{jaasAuthenticationAppConfig()};
+		Map<String,AppConfigurationEntry[]> mappedConfigurations = new HashMap<>();
+		mappedConfigurations.put("SPRINGSECURITY", confs);
+		InMemoryConfiguration config = new InMemoryConfiguration(mappedConfigurations);
 		result.setConfiguration(config);
-		result.setAuthorityGranters(new AuthorityGranter[]{
-				new AuthorityGranter() {
-					@Override
-					public Set<String> grant(Principal principal) {
-						if (principal.getName().equals("admin"))
-							return Collections.singleton("ADMIN");
-						else
-							return Collections.singleton("CUSTOMER");
-					}
-				}
-		});
+		result.setAuthorityGranters(new AuthorityGranter[]{new RoleUserAuthorityGranter()});
 		return result;
+	}
+
+	private AppConfigurationEntry jaasAuthenticationAppConfig() {
+		return new AppConfigurationEntry(
+				UsernameEqualsPasswordLoginModule.class.getName(),
+                AppConfigurationEntry.LoginModuleControlFlag.REQUIRED,
+                new HashMap<String, Object>()
+        );
 	}
 }
