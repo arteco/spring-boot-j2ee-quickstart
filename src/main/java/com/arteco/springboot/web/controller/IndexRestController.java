@@ -1,4 +1,4 @@
-package com.arteco.springboot.controller;
+package com.arteco.springboot.web.controller;
 
 import com.arteco.springboot.common.JsonMessage;
 import org.springframework.web.bind.annotation.RequestMapping;

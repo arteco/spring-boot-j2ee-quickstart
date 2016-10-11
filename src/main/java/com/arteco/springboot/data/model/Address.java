@@ -1,4 +1,4 @@
-package com.arteco.springboot.model;
+package com.arteco.springboot.data.model;
 
 import org.hibernate.validator.constraints.Length;
 

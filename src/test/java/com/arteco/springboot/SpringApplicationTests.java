@@ -1,7 +1,7 @@
 package com.arteco.springboot;
 
-import com.arteco.springboot.data.PersonDao;
-import com.arteco.springboot.model.Person;
+import com.arteco.springboot.data.dao.PersonDao;
+import com.arteco.springboot.data.model.Person;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.arteco.springboot.controller;
+package com.arteco.springboot.web.controller;
 
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.boot.autoconfigure.web.ErrorController;
@@ -20,6 +20,7 @@ import java.util.Map;
  * mailto: info@arteco-consulting.com
  */
 @Controller
+@SuppressWarnings("unused")
 public class GeneralErrorController implements ErrorController {
 
 	/**

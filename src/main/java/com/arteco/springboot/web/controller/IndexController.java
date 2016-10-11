@@ -1,7 +1,7 @@
-package com.arteco.springboot.controller;
+package com.arteco.springboot.web.controller;
 
-import com.arteco.springboot.model.Address;
-import com.arteco.springboot.model.Person;
+import com.arteco.springboot.data.model.Address;
+import com.arteco.springboot.data.model.Person;
 import com.arteco.springboot.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

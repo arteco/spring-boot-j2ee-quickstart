@@ -1,6 +1,6 @@
-package com.arteco.springboot.repository;
+package com.arteco.springboot.data.repository;
 
-import com.arteco.springboot.model.Address;
+import com.arteco.springboot.data.model.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

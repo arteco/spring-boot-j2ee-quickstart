@@ -1,6 +1,6 @@
-package com.arteco.springboot.repository;
+package com.arteco.springboot.data.repository;
 
-import com.arteco.springboot.model.Person;
+import com.arteco.springboot.data.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
